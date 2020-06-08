@@ -1,0 +1,352 @@
+/*Configure the tab buttons*/
+.sheet-skills,
+.sheet-combat,
+.sheet-equipment,
+.sheet-bio,
+.sheet-worksheet {
+  display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="skills"] ~ div.sheet-skills,
+.sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
+.sheet-tabstoggle[value="equipment"] ~ div.sheet-equipment,
+.sheet-tabstoggle[value="bio"] ~ div.sheet-bio,
+.sheet-tabstoggle[value="worksheet"] ~ div.sheet-worksheet {
+  display: block;
+}
+
+
+.sheet-header {
+  display: grid;
+  width: 900px;
+  height: 200px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name image"
+}
+
+.sheet-skillstab {
+  display: grid;
+  width: 900px;
+  height: 200px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:"physical mental";
+}
+
+.sheet-combattab {
+  display: grid;
+  width: 900px;
+  grid-gap: 4px;
+  grid-template-columns: 3fr 2fr ;
+  grid-template-rows: 100px 160px 150px 1fr 1fr;
+  grid-template-areas:"current current"
+                      "hitcapacity values"
+                      "hitcapacity values"
+                      "weapons weapons"
+                      "weapons weapons";
+
+}
+.sheet-equipmenttab {
+  display: grid;
+  width: 900px;
+  height: 500px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr ;
+  grid-template-rows: 40px 1fr;
+  grid-template-areas:"load"
+                      "equipmentlist";
+
+}
+.sheet-biotab {
+  display: grid;
+  width: 900px;
+  height: 800px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:"personal careers homeworld"
+                      "generic description description"
+                      "solid description description";
+
+}
+.sheet-worksheettab {
+  display: grid;
+  width: 900px;
+  grid-gap: 4px;
+  grid-template-columns: 200px 200px 200px 360px;
+  grid-template-rows: 305px 130px 1fr 1fr;
+  grid-template-areas:"attributes personal homeworld skilllist"
+                      "final final final skilllist"
+                      "careers careers careers skilllist"
+                      "careers careers careers generic";
+
+}
+.sheet-career-grid-section {
+  display: grid;
+  width: 600px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:"left right";
+                      
+}
+
+
+/*----------------- GENERAL CSS ------------------
+
+textarea {
+  width: 90%;
+  height: 85%;
+} -*/
+
+.sheet-section {
+    padding: 5px;
+    border-style: solid;
+}
+
+/.sheet-flex-col {
+  display: flex;
+  flex-flow: row wrap;
+  /*justify-content: flex-start;*/
+}
+
+.sheet-center {
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/*------------- Section-specific CSS -------------*/
+
+.sheet-current {
+  grid-area: current;
+}
+
+.sheet-mental {
+  grid-area: mental;
+}  
+
+.sheet-physical {
+  grid-area: physical;
+
+}
+
+.sheet-ammo {
+  grid-area: ammo;
+  
+}
+
+.sheet-hitcapacity {
+  grid-area: hitcapacity;
+
+}
+
+.sheet-weapons {
+  grid-area: weapons;
+}
+
+.sheet-wounds {
+  grid-area: wounds;
+}
+
+.sheet-equipmentlist {
+  grid-area: equipmentlist;
+}
+
+.sheet-values {
+  grid-area: values;
+
+}
+
+.sheet-personal {
+  grid-area: personal;
+
+}
+
+.sheet-careers {
+  grid-area: careers;
+
+}
+
+.sheet-homeworld {
+  grid-area: homeworld;
+}
+
+.sheet-solid {
+  grid-area: solid;
+}
+
+.sheet-generic {
+  grid-area: generic;
+}
+
+.sheet-description {
+  grid-area: description;
+}
+
+.sheet-attributes {
+  grid-area: attributes;
+}
+
+.sheet-final {
+  grid-area: final;
+}
+
+.sheet-skilllist {
+  grid-area: skilllist;
+}
+
+.sheet-background {
+  grid-area: background;
+}
+
+.sheet-name {
+  grid-area: name;
+}
+
+.sheet-image {
+  grid-area: image;
+}
+.sheet-footer {
+  grid-area: footer;
+  background-color: gray;
+}
+.sheet-left {
+  grid-area: left;
+}
+.sheet-right {
+  grid-area: right;
+}
+.sheet-ammo-grid-container{
+    display:grid;
+    grid-template-columns: 30% 15% 15% 20% 20%
+}
+
+.sheet-melee-grid-container{
+    display:grid;
+    grid-template-columns: 40% 20% 20% 20%
+}
+
+.sheet-slug-grid-container{
+    display:grid;
+    grid-template-columns: 32% 6% 6% 10% 6% 6% 6% 10% 6% 6% 6%
+}
+
+.sheet-laser-grid-container{
+    display:grid;
+    grid-template-columns: 30% 6% 12% 12% 10% 6% 6% 6% 6% 6%
+}
+
+.sheet-heavy-grid-container{
+    display:grid;
+    grid-template-columns: 32% 6% 6% 6% 6% 6% 8% 6% 6% 6% 6% 6% 6% 6%
+}
+.sheet-plasma-grid-container{
+    display:grid;
+    grid-template-columns: 34% 6% 6% 10% 8% 6% 6% 6% 6% 6% 6%
+}
+.sheet-energy-grid-container{
+    display:grid;
+    grid-template-columns: 34% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6%
+}
+.sheet-grenade-grid-container{
+    display:grid;
+    grid-template-columns: 28% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6%
+}
+.sheet-ram-grid-container{
+    display:grid;
+    grid-template-columns: 40% 6% 6% 14% 6% 8% 6% 8% 6%
+}
+.sheet-missile-grid-container{
+    display:grid;
+    grid-template-columns: 40% 12% 12% 12% 10% 8% 6%
+}
+
+.sheet-equipment-grid-container{
+    display:grid;
+    grid-template-columns: 45% 8% 8% 8% 31%
+}
+
+.sheet-homeworld-grid-container{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+
+.sheet-personal-grid-container{
+    display:grid;
+    grid-template-columns: 40% 60%;
+}
+
+.sheet-attributes-grid-container{
+    display:grid;
+    grid-template-columns: 60% 20% 20%;
+}
+
+.sheet-skills-grid-container{
+    display:grid;
+    grid-template-columns: 10% 60% 10% 30%;
+}
+
+.sheet-initiative-grid-container{
+    display:grid;
+    grid-template-columns: 30% 10% 30% 10%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+img {
+  display: block;
+  margin-left: -4px;
+  margin-right: auto;
+}
+
+.sheet-rolltemplate-skillRoll-template_value{
+  text-align: right;
+}
+
+.sheet-template_value{
+  text-align: right;
+}
+
+.sheet-rolltemplate-Hit-Location-template_value{
+  text-align: center;
+}
+.sheet-rolltemplate-Hit-Location th {
+  text-align: center;
+  color: #ffffff;
+    background-color: #000000;
+}
+.sheet-rolltemplate-Hit-Location table {
+    width: 230px;
+    padding: 2px;
+  border: 1px solid;
+    background-color: #ffffff;
+}
+
+.sheet-rolltemplate-skillRoll th {
+  text-align: centre;
+  color: #ffffff;
+    background-color: #000000;
+}
+.sheet-rolltemplate-skillRoll table {
+    width: 230px;
+    padding: 2px;
+  border: 1px solid;
+    background-color: #ffffff;
+}
+
+
+input.sheet-repcontrol-toggle:not(:checked) ~ .repcontrol {
+    display: none;
+}

@@ -1,0 +1,2006 @@
+
+<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='worksheet'  />      
+
+<div class="header">
+  <div class="image">
+    <img src="https://imgur.com/ppPHf2R.jpg" alt="Traveller: The New Era" style="margin-top: -20px">
+  </div>  
+  <div class="name" style="border-right: solid;border-top: solid; border-left: solid; margin-top: -11px;">
+    <label style="margin-left: 5px; margin-top: 5px">Character: </label><input type="text" style="margin-left: 5px; margin-top: 5px" name="attr_character_name"/>
+    <br>
+    <label style="margin-left: 5px; margin-top: 5px">Universal Personality Profile:</label>
+      <table style="margin-left: 5px; margin-top: 5px">
+        <tr><td><input type="number" name="attr_strength_max"></td><td><input type="number" name="attr_agility_max"></td><td><input type="number" name="attr_constitution_max"></td><td><input type="number" name="attr_intelligence_max"></td><td><input type="number" name="attr_education_max"></td><td><input type="number" name="attr_charisma_max"></td><td> - </td><td><input type="number" name="attr_psionic"></td><td> - </td><td><input type="number" name="attr_SOC"></td></tr>
+        <tr><th><p>STR</p></th><th><p>AGL</p></th><th><p>CON</p></th><th><p>INT</p></th><th><p>EDU</p></th><th><p>CHR</p></th><th>  </th><th><p>PSI</p></th><th>  </th><th><p>SOC</p></th></tr>
+      </table>
+    <button type="action" style="margin-left: 5px;" name="act_skills">Skills</button>
+    <button type="action" name="act_combat">Combat</button>
+    <button type="action" name="act_equipment">Equipment</button>
+    <button type="action" name="act_bio">Bio</button>
+    <button type="action" name="act_worksheet">Worksheet</button>
+  </div>
+</div>
+<div class='sheet-skills'>
+    <div class="skillstab"> 
+        <div class="physical section">
+            <div class="skills-grid-container">
+              <button type="roll" name="roll_strength" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Strength}}}  {{os=[[@{Strength}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Strength}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Strength}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=Strength}}"></button>
+            <h3>Strength </h3><h3><span type="number" name="attr_strength"></span></h3> 
+             </div> 
+               <input class="sheet-repcontrol-toggle" type="hidden" name="attr_toggle_repcontrol" value="0" checked=""> 
+               <fieldset class="repeating_strskills"> <!-- Repating strength skills -->
+                <div class="skills-grid-container">
+                <button type="roll" name="roll_strskill" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{strskill_value}}}  {{os=[[((@{strskill_value}+@{Strength})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{strskill_value}+@{Strength})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{strskill_value}+@{Strength})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{strskill_name}}}"></button><input readonly type="hidden" name="attr_strskill_name"><input readonly type="hidden" name="attr_strskill_value"><span name="attr_strskill_name"></span><span name="attr_strskill_value"></span>
+                </div>
+              </fieldset> 
+            <br>
+            <div class="skills-grid-container">
+            <button type="roll" name="roll_agility" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Agility}}}  {{os=[[@{Agility}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Agility}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Agility}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=Agility}}"></button>
+            <h3>Agility </h3><h3><span type="number" name="attr_agility"></span></h3>
+              </div>
+              <fieldset class="repeating_aglskills"> <!-- Repeating agility skills -->
+                <div class="skills-grid-container">
+                <button type="roll" name="roll_aglskill" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{aglskill_value}}}  {{os=[[((@{aglskill_value}+@{Agility})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{aglskill_value}+@{Agility})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{aglskill_value}+@{Agility})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{aglskill_name}}}"></button><input readonly type="hidden" name="attr_aglskill_name"><input readonly type="hidden" name="attr_aglskill_value">
+                  <span type="text" name="attr_aglskill_name"></span>
+                  <span type="number" value="0" name="attr_aglskill_value"></span>
+                </div>
+              </fieldset> 
+            <br>
+              <div class="skills-grid-container">
+              <button type="roll" name="roll_constitutuon" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Constitution}}}  {{os=[[@{Constitution}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Constitution}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Constitution}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=Constitution}}"></button>
+              <h3>Constitution </h3><h3><span type="number" name="attr_constitution"></span></h3>
+              </div>  
+                <fieldset class="repeating_conskills"> <!-- Repeating constitution skills -->
+                  <div class="skills-grid-container">
+                  <button type="roll" name="roll_conskill" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{conskill_value}}}  {{os=[[((@{conskill_value}+@{Constitution})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{conskill_value}+@{Constitution})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{conskill_value}+@{Constitution})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{conskill_name}}}"></button><input readonly type="hidden" name="attr_conskill_name"><input readonly type="hidden" name="attr_conskill_value">   
+                  <span type="text" name="attr_conskill_name"></span>
+                  <span type="number" value="0" name="attr_conskill_value"></span>
+                  </div>
+                </fieldset>
+        </div>
+        <div class="mental section">
+          <div class="skills-grid-container">
+            <button type="roll" name="roll_intelligence" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Intelligence}}}  {{os=[[@{Intelligence}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Intelligence}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Intelligence}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=Intelligence}}"></button>
+            <h3>Intelligence </h3><h3><span type="number" name="attr_intelligence"></span></h3>
+          </div>  
+              <input class="sheet-repcontrol-toggle" hidden="checkbox" name="attr_toggle_repcontrol" value="0" checked=""> 
+              <fieldset class="repeating_intskills"> <!-- Repating intelligence skills -->
+                <div class="skills-grid-container">
+                <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{intskill_value}}}  {{os=[[((@{intskill_value}+@{Intelligence})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{intskill_value}+@{Intelligence})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{intskill_value}+@{Intelligence})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{intskill_name}}}"></button><input readonly type="hidden" name="attr_intskill_name"><input readonly type="hidden" name="attr_intskill_value">
+                <span type="text" name="attr_intskill_name"></span>
+                <span type="number" value="0" name="attr_intskill_value"></span>
+                </div>
+              </fieldset>
+            <br>
+            <div class="skills-grid-container">
+            <button type="roll" name="roll_education" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Education}}}  {{os=[[@{Education}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Education}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Education}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=Education}}"></button>
+            <h3>Education </h3><h3><span type="number" name="attr_education"></span></h3>
+            </div>  
+              <fieldset class="repeating_eduskills"> <!-- Repeating edu skills -->
+                <div class="skills-grid-container">
+                <button type="roll" name="roll_eduskill" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{eduskill_value}}}  {{os=[[((@{eduskill_value}+@{Education})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{eduskill_value}+@{Education})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{eduskill_value}+@{Education})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{eduskill_name}}}"></button><input readonly type="hidden" name="attr_eduskill_name"><input readonly type="hidden" name="attr_eduskill_value">
+                <span type="text" name="attr_eduskill_name"></span>
+                <span type="number" value="0" name="attr_eduskill_value"></span>
+                </div>
+              </fieldset>
+            <br>
+            <div class="skills-grid-container">
+            <button type="roll" name="roll_charisma" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Charisma}}}  {{os=[[@{Charisma}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Charisma}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Charisma}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=Charisma}}"></button>
+            <h3>Charisma </h3><h3><span type="number" name="attr_charisma"></span></h3>
+            </div>  
+              <fieldset class="repeating_chaskills"> <!-- Repeating Charisma skills -->
+                <div class="skills-grid-container">
+                <button type="roll" name="roll_chaskill" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{chaskill_value}}}  {{os=[[((@{chaskill_value}+@{Charisma})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{chaskill_value}+@{Charisma})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{chaskill_value}+@{Charisma})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{chaskill_name}}}"></button><input readonly type="hidden" name="attr_chaskill_name"><input readonly type="hidden" name="attr_chaskill_value">
+                <span type="text" name="attr_chaskill_name"></span>
+                <span type="number" value="0" name="attr_chaskill_value"></span>
+              </div>
+              </fieldset>
+            <br>
+            <div class="skills-grid-container">
+            <button type="roll" name="roll_Psionic" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{Psionic}}}  {{os=[[@{Psionic}*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]}-10]]}} {{cf=[[@{Psionic}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }+10]]}}    {{success=[[@{Psionic}*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}}   {{roll=[[1d20]]}} {{skillname=Psionic}}"></button>
+            <h3>Psionic Strength </h3><h3><span type="number" name="attr_psionic"></h3>
+            </div>   
+               <fieldset class="repeating_psiskills">
+                 <div class="skills-grid-container">
+                 <button type="roll" value="&{template:skillRoll} {{name=@{character_name}}} {{skillvalue=@{psiskill_value}}}  {{os=[[((@{psiskill_value}+@{Psionic})*?{Difficulty?|Average,[[2]]|Easy,[[4]]|Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]]})-10]]}} {{cf=[[((@{psiskill_value}+@{Psionic})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] })+10]]}}    {{success=[[(@{psiskill_value}+@{Psionic})*?{Difficulty?| Average,[[2]]|Easy, [[4]] |Difficult,[[1]]|Formidable,[[0.5]]|Impossible,[[0.25]] }]]}} {{roll=[[1d20]]}} {{skillname=@{psiskill_name}}}" ></button>  <input readonly type="hidden" name="attr_psiskill_name"><input readonly type="hidden" name="attr_psiskill_value">
+                 <input type="hidden" name="attr_psiskill_name">
+                 <input type="hidden" value="0" name="attr_psiskill_value">
+                 <span name="attr_psiskill_name"></span><span name="attr_psiskill_value"></span>
+                </div>
+              </fieldset>       
+          </div>
+        </div>
+      </div>    
+  <div class='sheet-combat'>
+    <div class="combattab">
+      <div class="current section">
+        <h3>Current weapon: </h3><input type="text"  style="width: 100%" value="Ideally stats on the weapon selected as 'current' in the sections below would go here".>
+        <br><b>Throw Range:</b> <input type="number" name="attr_throw_range"/><b>Unarmed Combat Damage:</b><input type="number" name="attr_unarmed_damage"/><b>Strength: </b><input type="number" name="attr_strength">
+      </div>
+      <!--div class="ammo section">
+        <h2>Ammo</h2>
+        <div class="ammo-grid-container">
+          <h5>Magazine type</h5>
+          <h5>Capacity</h5>
+          <h5>Current</h5>
+          <h5>No. Mags.</h5>
+          <h5>Extra ammo</h5>
+        </div>    
+          <fieldset class="repeating_ammo"> 
+            <div class="ammo-grid-container">
+              <input class="ammo-grid-container" type="text" style="width: 95%" name="attr_magazine_name" />
+              <input class="ammo-grid-container" type="number" style="width: 95%" name="attr_ammo_capacity"/>
+              <input class="ammo-grid-container" type="number" style="width: 95%" name="attr_ammo_current"/>
+              <input class="ammo-grid-container" type="number" style="width: 95%" name="attr_ammo_magazines"/>
+              <input class="ammo-grid-container" type="number" style="width: 100%" name="attr_ammo_extra"/>
+            </div>
+          </fieldset>
+      </div-->
+      <div class="values section">
+        <h2>Initiative: <button type="roll" name="roll_initiative" value="/roll 1d0 +@{initiative}+@{final_initiative} &{tracker}"></button></h2>  
+        <br>Current: <input type="number" name="attr_initiative"> Max: <input type="number" name="attr_initiative_max">
+        <br><b>Armor penalty: </b><input type="number" value="0" name="attr_armor_initiative_penalty">
+        <b>Load penalty: </b><input type="number" value="0" name="attr_load_initiative_penalty">
+        <br><b>Damage penalty: </b><input type="number" value="0" name="attr_damage_initiative_penalty">
+        <b>Initiative tie-break: <input type="number" name="attr_tie_break"></b>
+        <input type="hidden" name="attr_final_initiative" value="0">
+      </div>
+      <div class="weapons section">
+        <h1>Weapons</h1>
+          <br>
+          <h2>Melee weapons</h2>
+            <div class="melee-grid-container">            
+                <h5>Weapon</h5>
+                <h5>Range</h5>
+                <h5>Hit mod</h5>
+                <h5>Damage</h5>
+            </div>  
+            <fieldset class="repeating_meleeweapons">
+              <div class="melee-grid-container">
+                <input type="text" style="width: 95%" name="attr_melee_name" />
+                <input type="text" style="width: 95%" name="attr_melee_range"/>
+                <input type="text" style="width: 95%" name="attr_melee_hit_mod"/>
+                <input type="text"  style="width: 100%" name="attr_melee_damage"/>
+              </div>
+            </fieldset>
+          <br>
+          <h2>Slug throwers</h2>
+            <div class="slug-grid-container">
+              <h5>Weapon</h5>
+              <h5>ROF</h5>
+              <h5>Dam</h5>
+              <h5>Pen rtng</h5>
+              <h5>SS rec</h5>
+              <h5>Brst rec</h5>
+              <h5>Range</h5>
+              <h5>Blk</h5>
+              <h5>Mag</h5>
+              <h5>Ammo</h5>
+              <h5>No mags</h5>
+            </div>  
+            <fieldset class="repeating_slugthrowers">
+              <div class="slug-grid-container">
+              <input type="text" style="width: 95%" name="attr_slug_name" />
+              <input type="text" style="width: 95%" name="attr_slug_rof"/>
+              <input type="text" style="width: 95%" name="attr_slug_dam_val" />
+              <input type="text" style="width: 95%" name="attr_slug_pen_rtng" />
+              <input type="text" style="width: 95%" name="attr_slug_ss_recoil" />
+              <input type="text" style="width: 95%" name="attr_slug_brst_recoil" />
+              <input type="text" style="width: 95%" name="attr_slug_range" />
+              <input type="text" style="width: 95%" name="attr_slug_blk" />
+              <input type="text" style="width: 95%" name="attr_slug_mag" />
+              <input type="text" style="width: 95%" name="attr_slug_ammo">
+              <input type="text" style="width: 100%" name="attr_slug_mags">
+            </fieldset>
+          <br>
+          <h2>Lasers</h2>
+            <div class="laser-grid-container">
+              <h5>Weapon</h5>
+              <h5>ROF</h5>
+              <h5>Dam <br>(S-M-L-E)</h5>
+              <h5>Dam <br>(W-X-Y-Z)</h5>
+              <h5>Pen rtng</h5>
+              <h5>Range</h5>
+              <h5>Blk</h5>
+              <h5>Mag</h5>
+              <h5>Ammo</h5>
+              <h5>No mags</h5>
+              </div>  
+            <fieldset class="repeating_lasers">
+              <div class="laser-grid-container">
+                <input type="text" style="width: 95%" name="attr_laser_name" />
+                <input type="text" style="width: 95%" name="attr_laser_rof"/>
+                <input type="text" style="width: 95%" name="attr_laser_dam_smle" />
+                <input type="text" style="width: 95%" name="attr_laser_dam_wxyz" />
+                <input type="text" style="width: 95%" name="attr_laser_pen_rtng" />
+                <input type="text" style="width: 95%" name="attr_laser_range" />
+                <input type="text" style="width: 95%" name="attr_laser_blk" />
+                <input type="text" style="width: 95%" name="attr_laser_mag" />
+                <input type="text" style="width: 95%" name="attr_laser_ammo">
+                <input type="text" style="width: 100%" name="attr_laser_mags">
+                </div>
+            </fieldset>
+          <br>
+          <h2>Heavy weapons</h2>
+            <div class="heavy-grid-container">
+              <h5>Weapon</h5>
+              <h5>ROF</h5>
+              <h5>Con/brst</h5>
+              <h5>Pen val</h5>
+              <h5>Dngr spc</h5>
+              <h5>Dam val</h5>
+              <h5>Pen rtng</h5>
+              <h5>Range</h5>
+              <h5>Blk</h5>
+              <h5>Mag</h5>
+              <h5>Ammo</h5>
+              <h5>No mags</h5>
+              </div>
+            <fieldset class="repeating_heavyweapons">
+              <div class="heavy-grid-container"> 
+                <input type="text" style="width: 95%" name="attr_heavy_weapon_name" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapon_rof"/>
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_con_brst" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_pen_val" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_dngr_spc" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_dam_val" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_pen_rtng" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_range" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_blk" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_mag" />
+                <input type="text" style="width: 95%" name="attr_heavy_weapons_ammo"/>
+                <input type="text" style="width: 100%" name="attr_heavy_weapons_mags"/>
+                </div>
+            </fieldset>
+          <br>
+          <h2>Plasma bazookas</h2>
+            <div class="plasma-grid-container">
+              <h5>Weapon</h5>
+              <h5>Rld</h5>
+              <h5>Dam val</h5>
+              <h5>Pen val</h5>
+              <h5>Pen rtng</h5>
+              <h5>Recoil</h5>
+              <h5>Range</h5>
+              <h5>Blk</h5>
+              <h5>Mag</h5>
+              <h5>Ammo</h5>
+              <h5>Mags</h5>
+              </div>
+            <fieldset class="repeating_plasmabazookas">
+              <div class="plasma-grid-container">
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_name" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_rld" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_dam_val" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_pen_val" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_pen_rtng" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_recoil" />
+                <input type="text" style="width: 95%"name="attr_plasma_bazooka_range" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_blk" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_mag" />
+                <input type="text" style="width: 95%" name="attr_plasma_bazooka_ammo"/>
+                <input type="text" style="width: 100%" name="attr_plasma_bazooka_mags" />
+                </div>
+            </fieldset>
+          <br>
+          <h2>High energy weapons</h2>
+            <div class="energy-grid-container">
+              <h5>Weapon</h5>
+              <h5>ROF</h5>
+              <h5>Dam val</h5>
+              <h5>Pen val</h5>
+              <h5>Pen rtng</h5>
+              <h5>SS rec</h5>
+              <h5>Brst rec</h5>
+              <h5>Range</h5>
+              <h5>Blk</h5>
+              <h5>Mag</h5>
+              <h5>Ammo</h5>
+              <h5>No mags</h5>
+              </div>
+            <fieldset class="repeating_highenergy">
+              <div class="energy-grid-container">
+                <input type="text" style="width: 95%" name="attr_high_energy_name" />
+                <input type="text" style="width: 95%" name="attr_high_energy_rof" />
+                <input type="text" style="width: 95%" name="attr_high_energy_dam_val" />
+                <input type="text" style="width: 95%" name="attr_high_energy_pen_val" />
+                <input type="text" style="width: 95%" name="attr_high_energy_pen_rtng" />
+                <input type="text" style="width: 95%" name="attr_high_energy_ss_recoil" />
+                <input type="text" style="width: 95%" name="attr_high_energy_brst_recoil" />
+                <input type="text" style="width: 95%" name="attr_high_energy_range" />
+                <input type="text" style="width: 95%" name="attr_high_energy_blk" />
+                <input type="text" style="width: 95%" name="attr_high_energy_mag" />
+                <input type="text" style="width: 95%" name="attr_high_energy_ammo">
+                <input type="text" style="width: 100%" name="attr_high_energy_mags">
+              </div>
+            </fieldset>
+          <br>
+          <h2>Grenade lanuchers</h2>
+            <div class="grenade-grid-container">
+              <h5>Weapon</h5>
+              <h5>ROF</h5>
+              <h5>SR</h5>
+              <h5>IFR</h5>
+              <h5>Dam</h5>
+              <h5>Pen val</h5>
+              <h5>Pen rtng</h5>
+              <h5>SS rec</h5>
+              <h5>Brst rec</h5>
+              <h5>Blk</h5>
+              <h5>Mag</h5>
+              <h5>Ammo</h5>
+              <h5>No mags</h5>
+            </div>
+            <fieldset class="repeating_grenadelaunchers">
+              <div class="grenade-grid-container">
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_name" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_rof" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_sr" />
+                <input type="text" style="width: 95%" name="attr_grenade_launche_ifr" />              
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_dam_val" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_pen_val" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_pen_rtng" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_ss_recoil" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_brst_recoil" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_blk" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_mag" />
+                <input type="text" style="width: 95%" name="attr_grenade_launcher_ammo">
+                <input type="text" style="width: 100%" name="attr_grenade_launcher_mags">
+              </div>
+            </fieldset>    
+          <br>
+          <h2>RAM Grenades</h2>
+            <div class="ram-grid-container">
+              <h5>Weapon</h5>
+              <h5>SR</h5>
+              <h5>IFR</h5>
+              <h5>Conc-brst</h5>
+              <h5>Pen val</h5>
+              <h5>Dngr spc</h5>
+              <h5>Dam</h5>
+              <h5>Pen rtng</h5>
+              <h5>Ammo</h5>
+            </div>
+            <fieldset class="repeating_ramgrenades">
+              <div class="ram-grid-container">
+                <input type="text" style="width: 95%" name="attr_ram_grenade_name" />
+                <input type="text" style="width: 95%" name="attr_ram_grenade_sr" />
+                <input type="text" style="width: 95%" name="attr_ram_grenade_ifr" />
+                <input type="text" style="width: 95%" name="attr_ram_grenade_conc-brst" />
+                <input type="text" style="width: 95%" name="attr_ram_grenade_pen_val" />
+                <input type="text" style="width: 95%" name="attr_ram_grenade_dngr_spc" />
+                <input type="text" style="width: 95%"name="attr_ram_grenade_dam_val" />
+                <input type="text" style="width: 95%"name="attr_ram_grenade_pen_rtng" />
+                <input type="text" style="width: 100%" name="attr_ram_greande_ammo">
+              </div>  
+            </fieldset>    
+          <br>
+          <h2>Tac Missiles</h2>
+           <div class="missile-grid-container">
+              <h5>Weapon</h5>
+              <h5>Conc-brst</h5>
+              <h5>Pen val</h5>
+              <h5>Range</h5>
+              <h5>M/turn</h5>
+              <h5>Agl</h5>
+              <h5>Ammo</h5>
+            </div>
+             <fieldset class="repeating_tacmissiles">
+              <div class="missile-grid-container"> 
+                <input type="text" style="width: 95%" name="attr_tac_missile_name" />
+                <input type="text" style="width: 95%" name="attr_tac_missile_conc-brst" />
+                <input type="text" style="width: 95%" name="attr_tac_missile_pen_val" />
+                <input type="text" style="width: 95%" name="attr_tac_missile_range" />
+                <input type="text" style="width: 95%" name="attr_tac_missile_mturn" />
+                <input type="text" style="width: 95%" name="attr_tac_missile_agl" />
+                <input type="text" style="width: 100%" name="attr_tac_missile_ammo">
+              </div>
+            </fieldset>
+      </div>
+      <div class="hitcapacity section">
+        <h2 style="text-align: center">Hit Capacity<button type="roll" name="roll_hitlocation" value="value='&{template:Hit-Location} {{roll=[[1d10]]}}" /></h2>
+        <br>
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Capacity</th>
+              <th>AV</th>
+              <th>Damage</th>
+              <th>Status</th>                           
+            </tr>                   
+          </thead>
+          <tbody>
+            <tr><td >Head</td>
+              <td><input type="number" name="attr_head_hit_capacity"></td>
+              <td><input type="number" name="attr_head_armor_value"></td>
+              <td><input type="number" name="attr_head_damage" /></td>
+              <td><input type="text" name="attr_head_status"></td></tr>
+              <input type="hidden" value="0" name="attr_head_status_level">
+            <tr><td>Chest</td>
+              <td><input type="number" name="attr_chest_hit_capacity"></td>
+              <td><input type="number" name="attr_chest_armor_value"></td>
+              <td><input type="number" name="attr_chest_damage" /></td>
+              <td><input type="text" name="attr_chest_status"></td>
+              <input type="hidden" value="0" name="attr_chest_status_level">
+            </tr>                   
+              <tr><td >Abdomen</td>
+                <td><input type="number" name="attr_abdomen_hit_capacity"></td>
+                <td><input type="number" name="attr_abdomen_armor_value"></td>
+                <td><input type="number" name="attr_abdomen_damage" /></td>
+                <td><input type="text" name="attr_abdomen_status"></td></tr> 
+                <input type="hidden" value="0" name="attr_abdomen_status_level">
+              <tr><td >Right Arm</td>
+                <td><input type="number" name="attr_right_arm_hit_capacity"></td>
+                <td><input type="number" name="attr_right_arm_armor_value"></td>
+                <td><input type="number" name="attr_right_arm_damage" /></td>
+                <td><input type="text" name="attr_right_arm_status"></td></tr>
+                <input type="hidden" value="0" name="attr_right_arm_status_level">
+              <tr><td >Left Arm</td>
+                <td><input type="number" name="attr_left_arm_hit_capacity"></td>
+                <td><input type="number" name="attr_left_arm_armor_value"></td>
+                <td><input type="number" name="attr_left_arm_damage" /></td>
+                <td><input type="text" name="attr_left_arm_status"></td></tr>
+                <input type="hidden" value="0" name="attr_left_arm_status_level">
+              <tr><td >Right Leg</td>
+                <td><input type="number" name="attr_right_leg_hit_capacity"></td>
+                <td><input type="number" name="attr_right_leg_armor_value"></td>
+                <td><input type="number" name="attr_right_leg_damage" /></td>
+                <td><input type="text" name="attr_right_leg_status"></td></tr>
+                <input type="hidden" value="0" name="attr_right_leg_status_level">
+              <tr><td >Left Leg</td>
+                <td><input type="number" name="attr_left_leg_hit_capacity"></td>
+                <td><input type="number" name="attr_left_leg_armor_value"></td>
+                <td><input type="number" name="attr_left_leg_damage" /></td>
+                <td><input type="text" name="attr_left_leg_status"></td></tr>
+                <input type="hidden" value="0" name="attr_left_leg_status_level">
+              </tbody>
+            </table>
+      </div>
+      <!--div class="wounds section">
+        Wound effects:
+        <br>
+        <input type="text" value="0" name="attr_wound_level">
+        <input type="text" style="width: 95%;height: 80%" name="attr_wound_effects">
+      </div-->
+    </div>
+  </div>
+<div class='sheet-equipment'>
+  <div class="equipmenttab">
+    <div class="load section">
+     <b>Credits: </b><input type="number" name="attr_credits" style="margin-right: 5px">   <b>Load: <input type="number" style="margin-right: 5px" name="attr_load"/></b><b>Weight carried: <input type="number" style="margin-right: 5px" value="0" name="attr_encumbrance_total"></b><input style="width: 55%" readonly type="textarea" value="Unburdened" name="attr_load_limit">
+    </div>
+    <div class="equipmentlist section">
+      <h2>Equipment</h2>
+        <div class="equipment-grid-container">
+          <h4>Item</h4>
+          <h4 style="text-align: center;">Number</h4>
+          <h4 style="text-align: center;">Weight</h4>
+          <h4 style="text-align: center;">Carried</h4>
+          <h4>Notes/description</h4>
+        </div>  
+        <fieldset class="repeating_inventory">
+          <div class="equipment-grid-container">
+            <input type="text" style="width: 95%" name="attr_equpiment_name">
+            <input type="number" style="width: 95%" name="attr_item_number">
+            <input type="number" style="width: 95%" name="attr_item_weight">
+            <input type="checkbox" style="width: 95%;" name="attr_equipment_carried">
+            <input type="text" style="width: 95%" name="attr_equpiment_description">
+            <!--input type="hidden" name="attr_total_weight" value="(@{equpiment_item_number}*@{equipment_weight})*@{weight_modifier}" disabled="true"-->
+          </div>
+        </fieldset>
+    </div>    
+  </div>
+</div>
+<div class="sheet-bio">
+  <div class="biotab">
+    <div class="personal section">
+       <div class="personal-grid-container">
+         <b>Race: </b><p><span name="attr_race"></span></p>
+         <b>Gender: </b><p><span name="attr_gender"></span></p> 
+         <b>Rank: </b><p><span name="attr_rank"></span></p>
+         <b>Age: </b><p><span name="attr_age"></span></p>
+         <b>Weight: </b><p><span name="attr_weight"></span> kg</p> 
+         <b>Height: </b><p><span name="attr_heigth"></span> cm</p>
+       </div>  
+    </div>
+    <div class="careers section">
+      <h3>Careers:</h3>
+      <input class="sheet-repcontrol-toggle" hidden="checkbox" name="attr_toggle_repcontrol" value="0" checked="">
+      <fieldset class="repeating_careers"> <!-- Repeating careers section -->
+        <span name="attr_careername"></span>
+      </fieldset> 
+    </div>
+    <div class="homeworld section">
+      <div class="homeworld-grid-container"> 
+          <h3>Homeworld: </h3><h3><input type="text" name="attr_homeworld" style="width: 90%"></h3>         
+          Starport: <span name="attr_starport"></span>
+          Size: <span name="attr_planetsize"></span>
+          Atmosphere: <span name="attr_atmosphere"></span>
+          Hydrosphere: <span name="attr_hydrosphere"></span>
+          Population: <span name="attr_population"></span>
+          Government: <span name="attr_govlevel"></span>
+          Law Level: <span name="attr_lawlevel"></span>
+          Tech Level: <span name="attr_techlevel"></span>
+      </div>                          
+    </div>
+    <div class="generic section">
+      <h3>Generic Contacts</h3>
+        <input class="sheet-repcontrol-toggle" hidden="checkbox" name="attr_toggle_repcontrol" value="0" checked="">
+        <fieldset class="repeating_contacts">
+          <span name="attr_generic_contact_value"></span>
+          <span name="attr_generic_contact_type"></span>
+        </fieldset>
+    </div>
+    <div class="solid section">
+     <h3>Solid Contacts</h3>
+      <textarea style="width: 95%; height: 70%" name="attr_solid_contacts" ></textarea>  
+    </div>
+    <div class="description section">
+    <h3>Notes/Description</h3>
+      <textarea style="width: 98%; height: 90%"  name="attr_descriptions" ></textarea>
+    </div>   
+   </div> 
+</div>
+<div class="sheet-worksheet">
+  <div class="worksheettab">
+    <div class="final section">
+      <b>initiative: </b><input type="number" name="attr_initiative_max" style="margin-right: 5px"><b>Initiative XP: </b><input type="number" name="attr_initiative_xp" style="margin-right: 5px">
+        <b>Total credits: </b><input type="number" name="attr_credits" style="margin-right: 5px"> 
+        <br><b>Total Ship DMs: </b><input type="number" name="attr_ship_dms" style="margin-right: 5px"> <b>Ship DM type:</b></p> <input type="text" name="attr_ship_dm_type">
+        <br><b style="margin-right: 5px">Age modifiers</b>Str: <input type="number" value="0" name="attr_age_str_mod" style="margin-right: 5px">Agl: <input type="number" value="0" name="attr_age_agl_mod" style="margin-right: 5px">Con: <input type="number" value="0" name="attr_age_con_mod" style="margin-right: 5px"> Int: <input type="number" value="0" name="attr_age_int_mod">
+        <br>Number of terms: <input type="number" name="attr_term_no"><input type="hidden" name="attr_gambling"> Cash base value: <input type="number" name="attr_cashbase"> Cash modifier: <input type="number" name="attr_cashmodifier">
+    </div>  
+    <div class="attributes section">
+      <h3>Attributes</h3>
+        <div class="attributes-grid-container">
+          <h5></h5> <h5>Rolled</h5><h5>Mod</h5>
+        </div>  
+        <div class="attributes-grid-container">  
+          Strength: <input type="number" name="attr_strbase" style="width: 30px"><input type="number" value="0" style="width: 30px" name="attr_strmod"><input type="hidden" name="age_str_mod">
+          Agility: <input type="number" name="attr_aglbase" style="width: 30px"><input type="number" value="0" style="width: 30px"name="attr_aglmod">
+          Constitution: <input type="number" name="attr_conbase" style="width: 30px"><input type="number" value="0" style="width: 30px" name="attr_conmod">
+          Intelligence: <input type="number" name="attr_intbase" style="width: 30px"><input type="number" value="0" style="width: 30px" name="attr_intmod">
+          Education: <input type="number" name="attr_edubase" style="width: 30px"><input type="number" value="0" style="width: 30px" name="attr_edumod">
+          Charisma: <input type="number" name="attr_chabase" style="width: 30px"><input type="number" value="0" style="width: 30px" name="attr_chamod">
+          Psionics: <input type="number" value="0" style="width: 30px" name="attr_psionic"><p></p>
+          Social standing: <input type="number" style="width: 30px" name="attr_soc"><p></p>
+      </div>
+    </div>
+    <div class="personal section">
+      <div class="personal-grid-container">
+        <b>Race: </b><p><input type="text" name="attr_race" style="width: 80px"></p>
+        <b>Gender: </b> <p><input type="text" name="attr_gender" style="width: 80px"></p> 
+        <b>Rank: </b><p><input type="text" name="attr_rank" style="width: 80px"></p>
+        <b>Age: </b> <p><input type="number" name="attr_age"> </p>
+        <b>Weight: </b><p><input type="number" name="attr_weight">kg</p> 
+        <b>Height: </b><p><input type="number" name="attr_heigth">cm</p>
+        </div>
+    </div>
+    <div class="homeworld section">
+      <h3>Homeworld data</h3>
+          <Select name="attr_homeworld_number" style="width: 120px">
+            <option value="22">--Choose--</option>
+            <option value="0">Oriflamme</option>
+            <option value="1">Aubaine</option>
+            <option value="2">Nike Nimbus</option>
+            <option value="3">Fija</option>
+            <option value="4">Spires</option>
+            <option value="5">Baldur</option>
+            <option value="6">Lucifer</option>
+            <option value="7">Aurora</option>
+            <option value="8">Trybec</option>
+            <option value="9">Schall</option>
+            <option value="10">Eos</option>
+            <option value="11">Vezina</option>
+            <option value="12">Spencer</option>
+            <option value="13">Ra</option>
+            <option value="14">Shenandoah</option>
+            <option value="15">Enkidu</option>
+            <option value="16">Phoebus</option>
+            <option value="17">Apollo</option>
+            <option value="18">Kruyter</option>
+            <option value="19">Rohit</option>
+            <option value="20">Zloga</option>
+            <option value="21">Helios</option>
+            <option value="22">Other</option>
+          </select>           
+             <div class="homeworld-grid-container">
+             Starport: <input type="text" name="attr_starport" style="width: 45px">
+             Size: <input type="number" name="attr_planetsize">
+             Atmosphere: <input type="number" name="attr_atmosphere">
+             Hydrosphere: <input type="number" name="attr_hydrosphere">
+             Population: <input type="number" name="attr_population">
+             Government: <input type="number" name="attr_govlevel">
+             Law Level: <input type="number" name="attr_lawlevel">
+             Tech Level: <input type="number" name="attr_techlevel">
+            </div>
+    </div>
+    <div class="careers section">
+      <h3>Careers:</h3>
+      <fieldset class="repeating_careers"> <!-- Repeating careers section -->
+      <div class=2colrow style="border-bottom: dotted;">
+       <div class="col"> 
+      <label>Career:</label>  
+          <select name="attr_careername">
+              <option>--Choose--</option>
+            <optgroup label="Education">
+              <option value="Undergraduate University">Undergraduate University</option>
+              <option value="Military Academy">Military Academy</option> 
+              <option value="Graduate University">Graduate University</option>
+              <option value="Law Shcool">Law School</option>
+              <option value="Medical School">Medical School</option>
+              <option value="Flight Academy">Flight Academy</option>
+              <option value="Technical School">Technical School</option>
+              <option value="Hiver Technical Academy">Hiver Technical Academy</option>
+            </optgroup>
+            <optgroup label="Civilian">  
+              <option value="Athlete">Athlete</option>
+              <option value="Attorney">Attorney</option>
+              <option value="Barbarian">Barbarian</option>
+              <option value="Belter">Belter</option>
+              <option value="Bounty Hunter">Bounty Hunter</option>
+              <option value="Bureaucrat">Bureaucrat</option>
+              <option value="Civil Engineer">Civil Engineer</option>
+              <option value="Civil Pilot">Civil Pilot</option>
+              <option value="Computer Operator/Programmer">Computer Operator Programmer</option>
+              <option value="Corsair">Corsair</option>
+              <option value="Criminal">Criminal</option>
+              <option value="Diplomat">Diplomat</option>
+              <option value="Entertainer">Entertainer</option>
+              <option value="Farmer">Farmer</option>
+              <option value="Hunter/Guide">Hunter/Guide</option>
+              <option value="Journalist">Journalist</option>
+              <option value="Law Enforcement">Law Enforcement</option>
+              <option value="Manager">Manager</option>
+              <option value="Martial Artist">Martial Artist</option>
+              <option value="Mechanic">Mechanic</option>
+              <option value="Medicine">Medicine</option>
+              <option value="Mercenary">Mercenary</option>
+              <option value="Merchant Marine">Merchant Marine</option>
+              <option value="Prisoner">Prisoner</option>
+              <option value="Professor">Professor</option>
+              <option value="Psionic Researcher">Psionic Researcher</option>
+              <option value="Rebel">Rebel</option>
+              <option value="Scientist">Scientist</option>
+              <option value="Scout">Scout</option>
+              <option value="Tough">Tough</option>
+              <option value="Trader">Trader</option>
+              <option value="Undercover Agent">Undercover Agent</option>
+              <option value="Wealthy Traveller">Wealthy Traveller</option>
+            </optgroup>
+            <optgroup label="Military">
+              <option value="Army">Army</option>
+              <option value="Aviation">Aviation</option>
+              <option value="Marines">Marines</option>
+              <option value="Navy">Navy</option>
+              <option value="Special Operations">Special Operations</option>
+              <option value="Wet Navy">Wet Navy</option>
+            </optgroup>
+          </select>   <!-- should be made selectable list -->
+          <!--<tr><th>Type</th></tr>
+          <tr><td><select name="attr_careertype" style="width: 120px"><option value="Education">Education</option><option value="civilian">Civilian</option><option value="Military">Military</option></select></td></tr-->
+          <label>Comission:</label><select name="attr_careercomission" style="width: 140px"><option value="No">No</option><option value="Yes">Yes</option></select>
+          <label>Special A/D:</label><select name="attr_careerspecial" style="width: 140px"><option value="No">No</option><option value="Yes">Yes</option></select>
+          <label>Promotion:</label><select name="attr_careerpromotion" style="width: 140px"><option value="No">No</option><option value="Yes">Yes</option></select>
+          <label>Ship DMs:</label><input type="number" name="attr_careershipdm">
+                <select name="attr_careershipdmtype" style="width: 170px">
+                  <option value="0">--Choose--</option>
+                  <option value="Scout/Courier">Scout/Courier</option>
+                  <option value="Trader">Trader</option><option value="Yacht">Yacht</option>
+                  <option value="Lab Ship">Lab Ship</option><option value="Warship">Warship</option>
+                </select>
+          <label>Credits:</label><input type="number" name="attr_careercredits">
+          </div>
+          <div class="col">
+          <label>Secondary Activity/Other effects/Notes:</label>
+          <textarea name="attr_careernotes" style="height: 300px"></textarea>
+          </div>
+          </fieldset>
+        </div>  
+    <div class="skilllist section">
+      <h4>Strength skills:</h4>
+        <fieldset class="repeating_strskills"> <!-- Repating strength skills -->
+          <select name="attr_strskill_name">
+            <option value="0">--Choose--</option>
+            <option value="Archery">Archery</option>
+            <option value="Archaic Artillery">Archaic Artillery</option>
+            <option value="Armed Martial Arts (Large Blade)">Armed Martial Arts (Large Blade)</option>
+            <option value="Armed Martial Arts (Small Blade)">Armed Martial Arts (Small Blade)</option>
+            <option value="Armed Martial Arts (Polearm)">Armed Martial Arts (Polearm)</option>
+            <option value="Armed Martial Arts (Large Blade)">Armed Martial Arts (Club)</option>
+            <option value="Autogun">Autogun</option>
+            <option value="Early Firearms">Early Firearms</option>
+            <option value="Energy Weapon (Pistol)">Energy Weapon (Pistol)</option>
+            <option value="Energy Weapon (Rifle)">Energy Weapon (Rifle)</option>
+            <option value="Grenade Launcher">Grenade Launcher</option>
+            <option value="Heavy Artillery">Heavy Artillery</option>
+            <option value="Heavy Gun">Heavy Gun</option>
+            <option value="Mason">Mason</option>
+            <option value="Mechanic">Mechanic</option>
+            <option value="Slug Weapon (Rifle)">Slug Weapon (Rifle)</option>
+            <option value="Slug Weapon (Pistol)">Slug Weapon (Pistol)</option>
+            <option value="Thrown Weapon">Thrown Weapon</option>
+            <option value="Unarmed Martial Arts">Unarmed Martial Arts</option>
+          </select>
+          <input type="number" value="0" name="attr_strskill_value">XP:<input type="number" name="attr_strskill_xp">
+        </fieldset>
+      <h4>Agility skills:</h4>
+        <fieldset class="repeating_aglskills"> <!-- Repeating agility skills -->
+          <select style="display:inline-block;margin-bottom:0px" name="attr_aglskill_name">
+            <option value="0">--Choose--</option>
+            <option value="Acrobatics">Acrobatics</option>
+            <option value="Dance">Dance</option>
+            <option value="Energy Artillery">Energy Artillery</option>
+            <option value="Energy Weapon">Energy Weapon</option>
+            <option value="Forgery">Forgery</option>
+            <option value="Energy Weapon (Pistol)">Energy Weapon (Pistol)</option>
+            <option value="Energy Weapon (Rifle)">Energy Weapon (Rifle)</option>
+            <option value="Grav Belt">Grav Belt</option>
+            <option value="Ground Vehicle (Wheeled Vehicle)">Ground Vehicle (Wheeled Vehicle)</option>
+            <option value="Ground Vehicle (Tracked)">Ground Vehicle (Tracked)</option>
+            <option value="Hovercraft">Hovercraft</option>
+            <option value="Intrusion">Intrusion</option>
+            <option value="Jeweler">Jeweler</option>
+            <option value="Machinist">Machinist</option>
+            <option value="Muscle Transport (Skates)">Muscle Transport (Skates)</option>
+            <option value="Muscle Transport (Skis)">Muscle Transport (Skis)</option>
+            <option value="Muscle Transport (Wheels)">Muscle Transport (Wheels)</option>
+            <option value="Music (Composistion)">Music (Composition)</option>
+            <option value="Music (Strings)">Music (Strings)</option>
+            <option value="Music (Wind)">Music (Wind)</option>
+            <option value="Music (Percussion)">Music (Percussion)</option>
+            <option value="Music (Keyboard)">Music (Keyboard)</option>
+            <option value="Music (Other)">Music (Other)</option>
+            <option value="Pickpocket">Pickpocket</option>
+            <option value="Pilot (Airship)">Pilot (Airship)</option>
+            <option value="Pilot (Fixed-Wing)">Pilot (Fixed Wing)</option>
+            <option value="Pilot (Rotary-Wing)">Pilot (Rotary Wing)</option>
+            <option value="Pilot (Glider)">Pilot (Glider)</option>
+            <option value="Pilot (Interface/Grav)">Pilot (Interface/Grav)</option>
+            <option value="Stealth">Stealth</option>
+            <option value="Tac Missile">Tac Missile</option>
+          </select>
+          <input type="number" value="0" name="attr_aglskill_value">XP:<input type="number" name="attr_aglskill_xp">
+        </fieldset>
+      <h4>Constitution skills</h4>
+        <fieldset class="repeating_conskills"> <!-- Repeating constitution skills -->
+          <select name="attr_conskill_name">
+            <option value="0">--Choose--</option>
+            <option value="Carpenter">Carpenter</option>
+            <option value="Climbing">Climbing</option>
+            <option value="Combat Engineer">Combat Engineer</option>
+            <option value="Environment Suit">Environment Suit</option>
+            <option value="Guard/Hunting Beasts">Guard/Hunting Beasts</option>
+            <option value="High-G Environment">High-G Environment</option>
+            <option value="Large Watercraft">Large Watercraft</option>
+            <option value="Parachute">Parachute</option>
+            <option value="Riding">Riding</option>
+            <option value="Small Watercraft">Small Watercraft</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Zero-G Environment">Zero-G Environment</option>
+          </select>
+          <input type="number" value="0" name="attr_conskill_value">XP:<input type="number" name="attr_conskill_xp">
+        </fieldset>
+      <h4>Intelligence skills</h4>
+        <fieldset class="repeating_intskills"> <!-- Repating intelligence skills -->
+          <select name="attr_intskill_name">
+            <option value="0">--Choose--</option>
+            <option value="Farming">Farming</option>
+            <option value="Fleet Tactics">Fleet Tactics</option>
+            <option value="Forward Observer">Forward Observer</option>
+            <option value="Gambling">Gambling</option>
+            <option value="Ground Tactics">Ground Tactics</option>
+            <option value="Interview">Interview</option>
+            <option value="Investigation">Investigation</option>
+            <option value="Navigation">Navigation</option>
+            <option value="Observation">Observation</option>
+            <option value="Painting">Psychology</option>
+            <option value="Research">Research</option>
+            <option value="Sculpture">Sculpture</option>
+            <option value="Sensors">Sensors</option>
+            <option value="Ship Tactics">Ship Tactics</option>
+            <option value="Streetwise">Streetwise</option>
+            <option value="Survey">Survey</option>
+            <option value="Survival">Survival</option>
+            <option value="Tracking">Tracking</option>
+            <option value="Willpower">Willpower</option>
+          </select>
+          <input type="number" value="0" name="attr_intskill_value">XP:<input type="number" name="attr_intskill_xp">
+        </fieldset>
+      <h4>Education skills</h4>
+        <fieldset class="repeating_eduskills"> <!-- Repeating edu skills -->
+          <select name="attr_eduskill_name">
+            <option value="0">--Choose--</option>
+            <option value="Admin/Legal">Admin/Legal</option>
+            <option value="Astrogation">Astrogation</option>
+            <option value="Biology">Biology</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Communications">Communications</option>
+            <option value="Computer">Computer</option>
+            <option value="Construction">Construction</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Excavation">Excavation</option>
+            <option value="Geology">Geology</option>
+            <option value="Gravitics">Gravitics</option>
+            <option value="Gunnery (Energy Weapon)">Gunnery (Energy Weapon)</option>
+            <option value="Gunnery (Grav Weapon)">Gunnery (Grav Weapon)</option>
+            <option value="Gunnery (Missiles)">Gunnery (Missiles)</option>
+            <option value="History">History</option>
+            <option value="Map">Map</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Medical (Diagnosis)">Medical (Diagnosis)</option>
+            <option value="Medical (Trauma Aid)">Medical (Trauma Aid)</option>
+            <option value="Medical (Surgery)">Medical (Surgery)</option>
+            <option value="Metallurgy">Metallurgy</option>
+            <option value="Meteorology">Meteorology</option>
+            <option value="Physics">Physics</option>
+            <option value="Robotics">Robotics</option>
+            <option value="RCV Operations">RCV Operations</option>
+            <option value="Screens (Nuclear Dampers)">Screens (Nuclear Dampers)</option>
+            <option value="Screens (Meson Screens)">Screens (Meson Screens)</option>
+            <option value="Screens (Sandcaster)">Screens (Sandcaster)</option>
+            <option value="Screens (Black Globe)">Screens (Black Globe)</option>
+            <option value="Ship's Engineering">Ship's Engineering</option>
+            <option value="Starship Architecture">Starship Architecture</option>
+            <option value="Xeno Biology">Xeno Biology</option>
+          </select>
+          <input type="number" value="0" name="attr_eduskill_value">XP:<input type="number" name="attr_eduskill_xp">
+        </fieldset>
+      <h4>Charisma skills</h4>
+        <fieldset class="repeating_chaskills"> <!-- Repeating Charisma skills -->
+          <select name="attr_chaskill_name">
+            <option value="0">--Choose--</option>
+            <option value="Act/Bluff">Act/Bluff</option>
+            <option value="Bargain">Bargain</option>
+            <option value="Bribery">Bribery</option>
+            <option value="Carousing">Carousing</option>
+            <option value="Disguise">Disguise</option>
+            <option value="Instruction">Instruction</option>
+            <option value="Interrogation">Interrogation</option>
+            <option value="Language">Language</option>
+            <option value="Leadership">Leadership</option>
+            <option value="Liaison">Liaison</option>
+            <option value="Persuasion">Persuaison</option>
+            <option value="Recruiting">Recruiting</option>
+            <option value="Service">Service</option>
+            <option value="Song">Song</option>      
+          </select>
+          <input type="number" value="0" name="attr_chaskill_value">XP:<input type="number" name="attr_chaskill_xp">   
+        </fieldset>
+      <h4>Psionic skills</h4>  
+        <fieldset class="repeating_psiskills"> <!-- Repeating psionics skills -->
+            <select name="attr_psiskill_name">
+              <option value="0">--Choose--</option>
+              <option value="Telepathy (Telempathy)">Telepathy (Telempathy)</option>
+              <option value="Telepathy (Project Emotion)">Telepathy (Project Emotion)</option>
+              <option value="Telepathy (Project Thought)">Telepathy (Project Thought)</option>
+              <option value="Telepathy (Willpower Drain)">Telepathy (Willpower Drain)</option>
+              <option value="Telepathy (Life Detection)">Telepathy (Life Detection)</option>
+              <option value="Telepathy (Shield)">Telepathy (Shield)</option>
+              <option value="Telepathy (Probe)">Telepathy (Probe)</option>
+              <option value="Telepathy (Assault)">Telepathy (Assault)</option>
+              <option value="Teleperception (Sense)">Teleperception (Sense)</option>
+              <option value="Teleperception (Clairvoyance)">Teleperception (Clairvoyance)</option>
+              <option value="Teleperception (Clairaudiene)">Teleperception (Clairaudiene)</option>
+              <option value="Telephysics (Cryokinesis)">Telephysics (Cryokinesis)</option>
+              <option value="Telephysics (Pyrokinesis)">Telephysics (Pyrokinesis)</option>
+              <option value="Telephysics (Telekinesis)">Telephysics (Telekinesis)</option>
+              <option value="Teleportation">Teleportation</option>
+              <option value="Self (Suspended Animation)">Self (Suspended Animation)</option>    
+              <option value="Self (Orientation)">Self (Orientation)</option>    
+              <option value="Self (Psionically Enhanced Strength)">Self (Psionically Enhanced Strength)</option>    
+              <option value="Self (Psionically Enhanced Constitution">Self (Psionically Enhanced Constitution</option>    
+              <option value="Self (Regeneration)">Self (Regeneration)</option>    
+              <option value="Computer Empathy">Computer Empathy</option>
+              <option value="Psionic Healing">Psionic Healing</option>
+              <option value="Prescience">Prescience</option>    
+          </select>
+          <input type="number" name="roll_psiskill" value="0" name="attr_psiskill_value">XP: <input type="number" name="attr_psiskill_xp">
+           
+    </div>
+    <div class="generic section">
+      <h3>Generic Contacts</h3>
+        <fieldset class="repeating_contacts">
+          <input type="text" name="attr_generic_contact_type">  
+            <!--option value="0">--Choose--</option>
+            <option value="Academic">Academic</option>
+            <option value="Off-world Academic">Off-world Academic</option>
+            <option value="Business">Business</option>
+            <option value="Off-world Business">Off-world Business</option>
+            <option value="Criminal">Criminal</option>
+            <option value="Off-world Criminal">Off-world Criminal</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Off-world Entertainment">Off-world Entertainment</option>
+            <option value="Government">Governement</option>
+            <option value="Off-world Governement">Off-world Government</option>
+            <option value="Intelligence Community">Intelligence Community</option>
+            <option value="Off-world Intelligence Community">Off-world Intelligence Community</option>
+            <option value="Journalist">Journalist</option>
+            <option value="Off-world Journalist">Off-world Journalist</option>
+            <option value="Law Enforcement">Law Enforcement</option>
+            <option value="Off-world Law Enforcement">Off-world Law Enforcement</option>
+            <option value="Medical">Medical</option>
+            <option value="Off-world Medical">Off-world Medical</option>
+            <option value="Military">Military</option>
+            <option value="Off-world Military">Off-world Military</option>
+            <option value="Specialist">Specialist</option>
+            <option value="Off-world Specialist">Off-world Specialist</option>
+            <option value="Trader">Trader</option>  
+            <option value="Off-world Trader">Off-world Trader</option>
+            <option value="Wealthy">Wealthy</option>
+            <option value="Off-world Wealthy">Off-world Wealtht</option>
+          </select-->
+          <input type="number" value="0" name="attr_generic_contact_value">     
+        </fieldset>
+    </div>
+    <input type="hidden" value="0" name="attr_unarmed_martial_arts">
+  </div>  
+</div>
+<rolltemplate class="sheet-rolltemplate-Hit-Location"> <!-- Hit location -->
+        <table class="skillRoll" style="border 1px black">
+            <tr><th colspan="1">Hit location roll</th></tr>
+            <tr>
+                {{#rollTotal() roll 1}}<td style="text-align: center">Hit on the Head</td>{{/rollTotal() roll 1}}
+                {{#rollTotal() roll 2}}<td style="text-align: center">Hit on the Right Arm</td>{{/rollTotal() roll 2}}      
+                {{#rollTotal() roll 3}}<td style="text-align: center">Hit on the Left Arm</td>{{/rollTotal() roll 3}}
+                {{#rollTotal() roll 4}}<td style="text-align: center">Hit on the Chest</td>{{/rollTotal() roll 4}}
+                {{#rollBetween() roll 5 6}}<td style="text-align: center">Hit on the Abdomen</td>{{/rollBetween() roll 5 6}}
+                {{#rollBetween() roll 7 8}}<td style="text-align: center">Hit on the Right Leg</td>{{/rollBetween() roll 7 8}}
+                {{#rollBetween() roll 9 10}}<td style="text-align: center">Hit on the Right Leg</td>{{/rollBetween() roll 9 10}}                
+            </tr>
+        </table>
+    </rolltemplate>
+
+    <rolltemplate class="sheet-rolltemplate-skillRoll"> <!-- Skill roll -->
+        <table class="skillRoll" style="width: 100%; border 1px black">
+            <!--<tr><th>{{name}}</th></tr>-->
+
+            <tr><th colspan="2">{{name}}</th></tr>
+            <tr><th colspan="2">Skill Roll</th></tr>
+            <tr><th colspan="2">{{skillname}}</th></tr>     
+            <!--<tr><td>os</td><td>{{os}}</td></td>
+            <tr><td>CF</td><td>{{cf}}</td></td>-->
+            <tr>
+                <tr>
+                    <td class="template_label"><b>Skill:</b> </td> 
+                    <td class="sheet-rolltemplate-skillRoll-template_value"> {{skillvalue}}&nbsp;({{success}})</td>
+                </tr>
+                
+           </tr>
+            <tr>
+                <td class="template_label"><b>Rolled:</b></td>
+                <td class="sheet-rolltemplate-skillRoll-template_value">&nbsp;{{roll}}</td>
+            </tr>
+            <tr>
+             <td class="template_label"><b>Result:</b></td>
+                
+             <!-- Check for outstanding success -->
+            {{#^rollGreater() roll os}}
+                {{#rollTotal() roll 20}}
+                    <td class="sheet-rolltemplate-skillRoll-template_value">Failure</td>
+                {{/rollTotal() roll 20}}
+                {{#^rollTotal() roll 20}}
+                    <td class="sheet-rolltemplate-skillRoll-template_value">Outstanding Success</td>
+                {{/^rollTotal() roll 20}}           
+            {{/^rollGreater() roll os}}
+             
+            {{#rollGreater() roll os}} 
+                {{#rollLess() roll cf}}
+                    {{#rollGreater() roll success}}
+                        <!-- Failure -->
+                        {{#rollTotal() roll 1}}
+                            <td class="sheet-rolltemplate-skillRoll-template_value">Success</td>                
+                        {{/rollTotal() roll 1}}                 
+                        {{#^rollTotal() roll 1}}
+                            <td class="sheet-rolltemplate-skillRoll-template_value">Failure</td>                
+                        {{/^rollTotal() roll 1}}                    
+                    {{/rollGreater() roll success}}
+                    {{#^rollGreater() roll success}}
+                        {{#rollTotal() roll 20}}
+                            <td class="sheet-rolltemplate-skillRoll-template_value">Failure</td>
+                        {{/rollTotal() roll 20}}    
+                        <!-- Success -->
+                        {{#^rollTotal() roll 20}}                   
+                            <td class="sheet-rolltemplate-skillRoll-template_value">Success</td>                
+                        {{/^rollTotal() roll 20}}                       
+                    {{/^rollGreater() roll success}}            
+                {{/rollLess() roll cf}} 
+            {{/rollGreater() roll os}}      
+            
+            {{#^rollLess() roll cf}}        
+                <!--Catastrophic Failure: -->
+                <td class="sheet-rolltemplate-skillRoll-template_value">Catastrophic Failure</td>           
+            {{/^rollLess() roll cf}}
+            </tr>
+        </table>
+    </rolltemplate>
+
+
+
+<script type="text/worker">
+  //Tabs Navigation
+    const buttonlist = ["skills","combat","equipment","bio","worksheet"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+
+  //Homeworld data
+        on ("change:homeworld_number", function () {
+            getAttrs(["homeworld_number", "Starport", "Planetsize", "Atmosphere", "Hydrosphere", "Population", "Govlevel", "Lawlevel", "Techlevel", "homeworld"], function (values) {
+                var homeworld_number = values.homeworld_number
+                var starport;
+                var planetsize;
+                var atmosphere;
+                var hydrosphere;
+                var population;
+                var govlevel;
+                var lawlevel;
+                var techlevel;
+            if (homeworld_number < 1 ) {
+                starport = "B"
+                planetsize = 8
+                atmosphere = 4
+                hydrosphere = 6
+                population = 8
+                govlevel = 5
+                lawlevel = 7
+                techlevel = 9
+                homeworld = "Oriflamme"
+            } else if (homeworld_number < 2 ) {
+                starport = "A"
+                planetsize = 7
+                atmosphere = 8
+                hydrosphere = 10
+                population = 8
+                govlevel = 8
+                lawlevel = 4
+                techlevel = 12
+                homeworld = "Aubaine"
+            } else if (homeworld_number < 3 ) {
+                starport = "C"
+                planetsize = 5
+                atmosphere = 4
+                hydrosphere = 7
+                population = 7
+                govlevel = 8
+                lawlevel = 9
+                techlevel = 9
+                homeworld = "Nike Nimbus"
+            } else if (homeworld_number < 4 ) {
+                starport = "D"
+                planetsize = 5
+                atmosphere = 5
+                hydrosphere = 3
+                population = 7
+                govlevel = 5
+                lawlevel = 4
+                techlevel = 10
+                homeworld = "Fija"
+            } else if (homeworld_number < 5 ) {
+                starport = "E"
+                planetsize = 8
+                atmosphere = 9
+                hydrosphere = 4
+                population = 7
+                govlevel = 8
+                lawlevel = 9
+                techlevel = 2
+                homeworld = "Spires"    
+            } else if (homeworld_number < 6 ) {
+                starport = "C"
+                planetsize = 10
+                atmosphere = 9
+                hydrosphere = 10
+                population = 7
+                govlevel = 5
+                lawlevel = 6
+                techlevel = 9
+                homeworld = "Baldur"
+            } else if (homeworld_number < 7 ) {
+                starport = "D"
+                planetsize = 5
+                atmosphere = 7
+                hydrosphere = 4
+                population = 7
+                govlevel = 8
+                lawlevel = 4
+                techlevel = 8
+                homeworld = "Lucifer"
+            } else if (homeworld_number < 8 ) {
+                starport = "B"
+                planetsize = 5
+                atmosphere = 7
+                hydrosphere = 6
+                population = 6
+                govlevel = 4
+                lawlevel = 6
+                techlevel = 11
+                homeworld = "Aurora"
+            } else if (homeworld_number < 9 ) {
+                starport = "B"
+                planetsize = 5
+                atmosphere = 4
+                hydrosphere = 3
+                population = 6
+                govlevel = 1
+                lawlevel = 0
+                techlevel = 10
+                homeworld = "Trybec"
+            } else if (homeworld_number < 10) {
+                starport = "E"
+                planetsize = 5
+                atmosphere = 7
+                hydrosphere = 10
+                population = 6
+                govlevel = 5
+                lawlevel = 5
+                techlevel = 7
+                homeworld = "Schall"
+            } else if (homeworld_number < 11 ) {
+                starport = "C"
+                planetsize = 6
+                atmosphere = 7
+                hydrosphere = 4
+                population = 6
+                govlevel = 5
+                lawlevel = 6
+                techlevel = 11
+                homeworld = "Eos"
+            } else if (homeworld_number < 12 ) {
+                starport = "D"
+                planetsize = 5
+                atmosphere = 4
+                hydrosphere = 4
+                population = 6
+                govlevel = 8
+                lawlevel = 7
+                techlevel = 7
+                homeworld = "Vezina"
+            } else if (homeworld_number < 13 ) {
+                starport = "D"
+                planetsize = 8
+                atmosphere = 9
+                hydrosphere = 10
+                population = 5
+                govlevel = 6
+                lawlevel = 8
+                techlevel = 7
+                homeworld = "Spencer"
+            } else if (homeworld_number < 14 ) {
+                starport = "E"
+                planetsize = 5
+                atmosphere = 7
+                hydrosphere = 10
+                population = 5
+                govlevel = 9
+                lawlevel = 10
+                techlevel = 6
+                homeworld = "Ra"
+            } else if (homeworld_number < 15 ) {
+                starport = "C"
+                planetsize = 5
+                atmosphere = 8
+                hydrosphere = 5
+                population = 4
+                govlevel = 2
+                lawlevel = 3
+                techlevel = 6
+                homeworld = "Shenandoah"
+            } else if (homeworld_number < 16 ) {
+                starport = "E"
+                planetsize = 5
+                atmosphere = 1
+                hydrosphere = 0
+                population = 4
+                govlevel = 1
+                lawlevel = 5
+                techlevel = 9
+                homeworld = "Enkidu"
+            } else if (homeworld_number < 17 ) {
+                starport = "D"
+                planetsize = 5
+                atmosphere = 6
+                hydrosphere = 7
+                population = 3
+                govlevel = 3
+                lawlevel = 3
+                techlevel = 7
+                homeworld = "Phoebus"
+            } else if (homeworld_number < 18 ) {
+                starport = "E"
+                planetsize = 8
+                atmosphere = 12
+                hydrosphere = 5
+                population = 3
+                govlevel = 0
+                lawlevel = 0
+                techlevel = 8
+                homeworld = "Apollo"
+            } else if (homeworld_number < 19 ) {
+                starport = "B"
+                planetsize = 0
+                atmosphere = 0
+                hydrosphere = 0
+                population = 3
+                govlevel = 1
+                lawlevel = 2
+                techlevel = 11
+                homeworld = "Kruyter"
+            } else if (homeworld_number < 20 ) {
+                starport = "E"
+                planetsize = 3
+                atmosphere = 1
+                hydrosphere = 0
+                population = 3
+                govlevel = 3
+                lawlevel = 5
+                techlevel = 9
+                homeworld = "Rohit"
+            } else if (homeworld_number < 21 ) {
+                starport = "E"
+                planetsize = 4
+                atmosphere = 3
+                hydrosphere = 0
+                population = 2
+                govlevel = 2
+                lawlevel = 5
+                techlevel = 9
+                homeworld = "Zloga"
+            } else if (homeworld_number < 22 ) {
+                starport = "E"
+                planetsize = 6
+                atmosphere = 4
+                hydrosphere = 8
+                population = 2
+                govlevel = 4
+                lawlevel = 3
+                techlevel = 4
+                homeworld = "Helios"
+            } else {
+                starport = 0
+                planetsize = 0
+                atmosphere = 0
+                hydrosphere = 0
+                population = 0
+                govlevel = 0
+                lawlevel = 0
+                techlevel = 0
+                homeworld = "Not Set"
+            } setAttrs({Homeworld:homeworld, Starport:starport, Planetsize:planetsize, Atmosphere:atmosphere, Hydrosphere:hydrosphere, Population:population, Govlevel:govlevel, Lawlevel:lawlevel, Techlevel:techlevel});
+            });
+        })  
+    
+    //Homeworld effects
+      //Homeworld effects on Education
+        on("change:techlevel", function() {
+            getAttrs(["techlevel", "edumod"
+                    ], function(pvalue) {
+                console.log("************ start capacities caclulation ************");
+                var techlevel =  parseInt(pvalue.techlevel);
+                var edumod =parseInt(pvalue.edumod) ;
+        if (techlevel < 4) {
+            edumod = "-2";
+        } else if (techlevel < 9) {
+            edumod = "0";
+        } else if (techlevel < 14) {
+            edumod = "1";
+        } else {
+            edumod = "2";
+        }
+                setAttrs({edumod});
+            });
+        });
+        
+      //Homeworld effects on Charisma
+        on("change:population", function() {
+            getAttrs(["population", "chamod"
+                    ], function(pvalue) {
+                console.log("************ start capacities caclulation ************");
+                var population =  parseInt(pvalue.population);
+                var chamod =parseInt(pvalue.chamod) ;
+        if (population < 6) {
+            chamod = "-1";
+        } else if (population < 9) {
+            chamod = "0";
+        } else {
+            chamod = "1";
+        }
+                setAttrs({chamod});
+            });
+        });
+
+      //Homeworld effects on Agility
+        on("change:atmosphere", function() {
+            getAttrs(["atmosphere", "aglmod"
+                    ], function(pvalue) {
+                console.log("************ start capacities caclulation ************");
+                var atmosphere =  parseInt(pvalue.atmosphere);
+                var aglmod =parseInt(pvalue.aglmod) ;
+        if (atmosphere < 2) {
+            aglmod = "1";
+        } else {
+            aglmod = "0";
+        }
+                setAttrs({aglmod});
+            });
+        });
+
+      //Homeworld effects on Strength
+        on("change:planetsize", function() {
+            getAttrs(["planetsize", "strmod"
+                    ], function(pvalue) {
+                console.log("************ start capacities caclulation ************");
+                var planetsize =  parseInt(pvalue.planetsize);
+                var strmod =parseInt(pvalue.strmod) ;
+        if (planetsize < 3) {
+            strmod = "-2";
+        } else if (planetsize < 5) {
+            strmod = "-1";
+        } else if (planetsize < 12) {
+            strmod = "0";
+        } else if (planetsize < 16) {
+            strmod = "1";
+        } else {
+            strmod = "2";
+        }
+                setAttrs({strmod});
+            });
+        });
+
+      //Homeworld effects on Constitution
+        on("change:planetsize change:atmosphere change:techlevel", function() {
+            getAttrs(["planetsize", "conmod", "atmosphere", "techlevel"
+                    ], function(pvalue) {
+                console.log("************ start capacities caclulation ************");
+                var planetsize =  parseInt(pvalue.planetsize);
+                var atmosphere =  parseInt(pvalue.atmosphere);
+                var techlevel =  parseInt(pvalue.techlevel);
+                var conmod = parseInt(pvalue.conmod) ;
+                var consizemod;
+                var conatmosmod;
+                var contechmod;
+        if (planetsize < 3) {
+            consizemod = -2;
+        } else if (planetsize < 5) {
+            consizemod = -1;
+        } else if (planetsize < 12) {
+            consizemod = 0;
+        } else if (planetsize < 16) {
+            consizemod = -1;
+        } else {
+            consizemod = -2;
+        }
+        
+        if (atmosphere < 2) {
+            conatmosmod = 0;
+        } else if (atmosphere  < 3) {
+            conatmosmod = -1;
+        } else if (atmosphere  < 4) {
+            conatmosmod = 0;
+        } else if (atmosphere  < 5) {
+            conatmosmod = -1;
+        } else if (atmosphere  < 9) {
+            conatmosmod = 0;
+        } else if (atmosphere  < 10) {
+            conatmosmod = -1;
+        } else {
+            conatmosmod = 0;
+        }
+        if (techlevel < 4) {
+            contechmod = 1;
+        } else {
+            contechmod = 0;
+        }
+                setAttrs({conmod:(contechmod+consizemod+conatmosmod)});
+            });
+        });
+
+  //Determining final attributes
+    
+    //Strength
+            on("change:strbase change:strmod change:age_str_mod", function() {
+                getAttrs(["strength", "strmod", "strbase", "age_str_mod"
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var strmod =  parseInt(pvalue.strmod);
+                    var strbase =  parseInt(pvalue.strbase);
+                    var age_str_mod = parseInt(pvalue.age_str_mod);
+                    var adjusted_str = strmod+strbase+age_str_mod;
+                    setAttrs({strength:adjusted_str,strength_max:adjusted_str});
+                });
+            });
+
+    //Agility
+            on("change:aglbase change:aglmod change:age_agl_mod", function() {
+                getAttrs(["agility", "aglmod", "aglbase", "age_agl_mod"
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var aglmod =  parseInt(pvalue.aglmod);
+                    var aglbase =  parseInt(pvalue.aglbase);
+                    var age_agl_mod = parseInt(pvalue.age_agl_mod);
+                    var adjusted_agl = (aglmod+aglbase+age_agl_mod);
+                    setAttrs({agility:adjusted_agl,agility_max:adjusted_agl});
+                });
+            });    
+
+    //Constitution
+            on("change:conbase change:conmod change:age_con_mod", function() {
+                getAttrs(["constitution", "conmod", "conbase", "age_con_mod"
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var conmod =  parseInt(pvalue.conmod);
+                    var conbase =  parseInt(pvalue.conbase);
+                    var age_con_mod =  parseInt(pvalue.age_con_mod);
+                    var adjusted_con = (conmod+conbase+age_con_mod);
+                    setAttrs({constitution:adjusted_con,constitution_max:adjusted_con});
+                });
+            });
+
+    //Intelligence
+            on("change:intbase change:age_int_mod", function() {
+                getAttrs(["intelligence", "age_int_mod", "intbase"
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var age_int_mod =  parseInt(pvalue.age_int_mod);
+                    var intbase =  parseInt(pvalue.intbase);
+                    var adjusted_int = (age_int_mod+intbase);
+                    setAttrs({intelligence:adjusted_int,intelligence_max:adjusted_int});
+                });
+            });    
+
+    //Education
+            on("change:edubase change:edumod", function() {
+                getAttrs(["education", "edumod", "edubase",
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var edumod =  parseInt(pvalue.edumod);
+                    var edubase =  parseInt(pvalue.edubase);
+                    var adjusted_edu = (edumod+edubase);
+                    setAttrs({education:adjusted_edu,education_max:adjusted_edu});
+                });
+            });
+
+    //Charisma
+            on("change:chabase change:chamod", function() {
+                getAttrs(["charisma", "chamod", "chabase"
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var chamod =  parseInt(pvalue.chamod);
+                    var chabase =  parseInt(pvalue.chabase);
+                    var adjusted_cha = (chamod+chabase);
+                    setAttrs({charisma:adjusted_cha,charisma_max:adjusted_cha});
+                });
+            });
+  
+  //Scripts for credits calculations
+    
+    //cashbasevalue
+        on("change:techlevel", function() {
+            getAttrs(["techlevel", "cashbase"
+                    ], function(pvalue) {
+                console.log("************ start capacities caclulation ************");
+                var techlevel =  parseInt(pvalue.techlevel);
+                var cashbasevalue =parseInt(pvalue.cashbase) ;
+                if (techlevel < 4) {
+            cashbasevalue = "10";
+        } else if (techlevel < 6) {
+            cashbasevalue = "100";
+        } else if (techlevel < 9) {
+            cashbasevalue = "500";
+        } else if (techlevel < 11) {
+            cashbasevalue = "1000";
+        } else {
+            cashbasevalue = "5000";
+        }
+                setAttrs({cashbase:cashbasevalue});
+            });
+        });
+
+    //check for gambling skill
+        on("change:repeating_intskills:intskill_name change:repeating_intskills:intskill_value", function() {
+       getAttrs(["repeating_intskills_intskill_name","repeating_intskills_intskill_value"], function(values) {
+     
+            var skill = values.repeating_intskills_intskill_name;
+            skill = skill.toLowerCase();
+            skill = skill.trim();
+
+             if (skill === "gambling"){
+                  var gambling_value = parseInt(values.repeating_intskills_intskill_value);
+                   setAttrs({gambling:gambling_value});
+               }
+            });
+        });
+
+    //Determine if gambling or SOC is the highest value
+        on("change:gambling change:soc", function() {
+        getAttrs(["gambling", "soc"
+                ], function(pvalue) {
+            console.log("************ start capacities caclulation ************");
+            var soc =  parseInt(pvalue.soc);
+            var gambling =parseInt(pvalue.gambling) ;
+            var cashmodifier = 0
+            if (soc < gambling) {
+                cashmodifier = gambling;
+            } else {
+                cashmodifier = soc ;
+            }
+                    setAttrs({cashmodifier});
+                });
+            });
+            
+  //Derived values    
+        //check for unarmed martial arts skill
+            on("change:repeating_strskills:strskill_name change:repeating_strskills:strskill_value", function() {
+           getAttrs(["repeating_strskills_strskill_name","repeating_strskills_strskill_value"], function(values) {
+         
+                var skill = values.repeating_strskills_strskill_name;
+                skill = skill.toLowerCase();
+                skill = skill.trim();
+
+                 if (skill === "unarmed martial arts"){
+                      var rank = parseInt(values.repeating_strskills_strskill_value);
+                       setAttrs({unarmed_martial_arts:rank});
+                   }
+           });
+        });
+
+        //unarmed combat damage
+            on("change:strength change:unarmed_martial_arts", function() {
+                getAttrs(["strength","unarmed_martial_arts" ,"unarmed_damage"
+                        ], function(pvalue) {
+                    console.log("************ start unarmed combat calc************");
+                    var unarmed_skill =  parseInt(pvalue.unarmed_martial_arts);
+                    var strength =  parseInt(pvalue.strength);
+                    var udamage =  Math.floor((unarmed_skill * strength)/10);
+                    console.log("udamage "+udamage);
+                    if(udamage < 1){
+                        udamage = 1;
+                    } else udamage = udamage
+                    setAttrs({unarmed_damage:udamage});
+                });
+            });
+
+        //set location hit capacities
+            on("change:strength_max change:constitution_max", function() {
+                getAttrs(["strength_max", "constitution_max",
+                        ], function(pvalue) {
+                    console.log("************ start capacities caclulation ************");
+                    var constitution_max =  parseInt(pvalue.constitution_max);
+                    var strength_max =  parseInt(pvalue.strength_max);
+                    var head_hit_capacity =constitution_max*2;
+                    var chest_hit_capacity=(constitution_max+strength_max)*3;
+                    var other_hit_capacity = (constitution_max+strength_max)*2;
+                    setAttrs({head_hit_capacity,chest_hit_capacity,abdomen_hit_capacity:other_hit_capacity,right_arm_hit_capacity:other_hit_capacity, left_arm_hit_capacity:other_hit_capacity, right_leg_hit_capacity:other_hit_capacity, left_leg_hit_capacity:other_hit_capacity});
+                });
+            });
+
+        //Load and Throw range
+            on("change:strength change:constitution", function() {
+            getAttrs(["strength", "constitution",
+                ], function(pvalue) {
+                    var strength = parseInt(pvalue.strength);
+                    var constitution = parseInt(pvalue.constitution)
+                    var load = (strength+constitution)*3;
+                    var throw_range = strength*4
+                setAttrs({load,throw_range})
+                });
+          });  
+  //Scripts for damage status and effects       
+    //Damage effects on strength and initative
+      on("change:head_status change:chest_status change:abdomen_status change:left_arm_status change:right_arm_status change:left_leg_status change:right_leg_status", function() {
+            getAttrs(["head_status_level", "chest_status_level","strength_max", "abdomen_status_level", "left_arm_status_level","right_arm_status_level","left_leg_status_level","right_leg_status_level"], function(pvalue) {
+                var head_status_level = parseInt(pvalue.head_status_level);
+                var chest_status_level = parseInt(pvalue.chest_status_level);
+                var abdomen_status_level = parseInt(pvalue.abdomen_status_level);
+                var left_arm_status_level = parseInt(pvalue.left_arm_status_level);
+                var right_arm_status_level = parseInt(pvalue.right_arm_status_level);
+                var left_leg_status_level = parseInt(pvalue.left_leg_status_level);
+                var right_leg_status_level = parseInt(pvalue.right_leg_status_level);
+                var strength_max = parseInt(pvalue.strength_max);
+                var half_strength = Math.floor(strength_max/2);
+                var strength;
+                var damage_initative_penalty;
+
+                if (head_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = 0;
+                } else if (chest_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = half_strength;
+                } else if (abdomen_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = half_strength;
+                } else if (left_arm_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = half_strength;
+                } else if (right_arm_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = half_strength;
+                } else if (left_leg_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = half_strength;
+                } else if (right_leg_status_level == 4) {
+                    damage_initiative_penalty = "5";
+                    strength = half_strength;
+                } else if (head_status_level == 3) {
+                    damage_initiative_penalty = "3";
+                    strength = half_strength;
+                } else if (chest_status_level == 3) {
+                    damage_initiative_penalty ="3";
+                    strength = half_strength;
+                } else if (abdomen_status_level == 3) {
+                    damage_initiative_penalty ="3";
+                    strength = half_strength;
+                } else if (left_arm_status_level == 3) {
+                    damage_initiative_penalty ="3";
+                    strength = half_strength;
+                } else if (right_arm_status_level == 3) {
+                    damage_initiative_penalty ="3";
+                    strength = half_strength;
+                } else if (left_leg_status_level == 3) {
+                    damage_initiative_penalty ="3";
+                    strength = half_strength;
+                } else if (right_leg_status_level == 3) {
+                    damage_initiative_penalty ="3";
+                    strength = half_strength;
+                } else if (head_status_level == 3) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (head_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (chest_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (abdomen_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (left_arm_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (right_arm_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (left_leg_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else if (right_leg_status_level == 2) {
+                    damage_initiative_penalty = "1";
+                    strength = strength_max;
+                } else {
+                    damage_initiative_penalty = "0";
+                    strength = strength_max;
+                } setAttrs({damage_initiative_penalty,strength})
+                });
+            });
+    //Chest status
+           on("change:chest_damage", function() {
+            getAttrs(["chest_damage", "chest_hit_capacity", "chest_status", "wound_level"
+                    ], function(pvalue) {
+                var chest_damage =  parseInt(pvalue.chest_damage);
+                var chest_hit_capacity = parseInt(pvalue.chest_hit_capacity) ;
+                var chest_status = parseInt(pvalue.chest_status) ;
+                var wound_level = parseInt(pvalue.wound_level);
+                if (chest_damage < 1) {
+                    chest_status = " ";
+                    chest_status_level = 0;
+                } else if (chest_damage <= chest_hit_capacity/2) {
+                    chest_status = "Scratch";
+                    chest_status_level = 1;
+                    if (wound_level < 1) {wound_level = "1"}
+                } else if (chest_damage <= chest_hit_capacity) {
+                    chest_status = "Sligth";
+                    chest_status_level = 2;
+                    if (wound_level < 2) {wound_level = "2"}
+                } else if (chest_damage <= chest_hit_capacity*2) {
+                    chest_status = "Serious";
+                    chest_status_level = 3;
+                    if (chest_damage < 3) [wound_level = "3"]
+                } else if (chest_damage > chest_hit_capacity*2) {
+                    chest_status = "Critical";
+                    chest_status_level = 4;
+                    if (wound_level < 5) {wound_level = "4"}
+                } else {
+                    chest_status = " ";
+                    chest_status_level = 0;
+                }
+                        setAttrs({chest_status,chest_status_level});
+                    });
+                });
+                   
+    //Head status            
+      on("change:head_damage", function() {
+              getAttrs(["head_damage", "head_hit_capacity", "head_status"
+                      ], function(pvalue) {
+                  var head_damage =  parseInt(pvalue.head_damage);
+                  var head_hit_capacity = parseInt(pvalue.head_hit_capacity) ;
+                  var head_status = parseInt(pvalue.head_status) ;
+          if (head_damage < 1) {
+              head_status = " ";
+              head_status_level = 0;
+          } else if (head_damage <= head_hit_capacity/2) {
+              head_status = "Scratch";
+              head_status_level = 1;
+          } else if (head_damage <= head_hit_capacity) {
+              head_status = "Sligth";
+              head_status_level = 2;
+          } else if (head_damage <= head_hit_capacity*2) {
+              head_status = "Serious";
+              head_status_level = 3;
+          } else if (head_damage > head_hit_capacity*2) {
+              head_status = "Critical";
+              head_status_level = 4;
+          } else {
+              head_status = " ";
+              head_status_level = 0;
+          }
+                  setAttrs({head_status,head_status_level});
+              });
+          });
+
+    //Abdomen status      
+      on("change:abdomen_damage", function() {
+              getAttrs(["abdomen_damage", "abdomen_hit_capacity", "abdomen_status"
+                      ], function(pvalue) {
+                  var abdomen_damage =  parseInt(pvalue.abdomen_damage);
+                  var abdomen_hit_capacity = parseInt(pvalue.abdomen_hit_capacity) ;
+                  var abdomen_status = parseInt(pvalue.abdomen_status) ;
+                  if (abdomen_damage < 1) {
+                      abdomen_status = " ";
+                      abdomen_status_level = 0;
+                  } else if (abdomen_damage <= abdomen_hit_capacity/2) {
+                      abdomen_status = "Scratch";
+                      abdomen_status_level = 1;
+                  } else if (abdomen_damage <= abdomen_hit_capacity) {
+                      abdomen_status = "Sligth";
+                      abdomen_status_level = 2;
+                  } else if (abdomen_damage <= abdomen_hit_capacity*2) {
+                      abdomen_status = "Serious";
+                      abdomen_status_level = 3;
+                  } else if (abdomen_damage > abdomen_hit_capacity*2) {
+                      abdomen_status = "Critical";
+                      abdomen_status_level = 4;
+                  } else {
+                      abdomen_status =" ";
+                      abdomen_status_level = 0;
+                  }
+                          setAttrs({abdomen_status,abdomen_status_level});
+                      });
+                  });
+                   
+    //Right arm status              
+        on("change:right_arm_damage", function() {
+              getAttrs(["right_arm_damage", "right_arm_hit_capacity", "right_arm_status"
+                      ], function(pvalue) {
+                  var right_arm_damage =  parseInt(pvalue.right_arm_damage);
+                  var right_arm_hit_capacity = parseInt(pvalue.right_arm_hit_capacity) ;
+                  var right_arm_status = parseInt(pvalue.right_arm_status) ;
+                  if (right_arm_damage < 1) {
+                      right_arm_status = " ";
+                      right_arm_status_level = 0;
+                  } else if (right_arm_damage <= right_arm_hit_capacity/2) {
+                      right_arm_status = "Scratch";
+                      right_arm_status_level = 1;
+                  } else if (right_arm_damage <= right_arm_hit_capacity) {
+                      right_arm_status = "Sligth";
+                      right_arm_status_level = 2;
+                  } else if (right_arm_damage <= right_arm_hit_capacity*2) {
+                      right_arm_status = "Serious";
+                      right_arm_status_level = 3;
+                  } else if (right_arm_damage > right_arm_hit_capacity*2) {
+                      right_arm_status = "Critical";
+                      right_arm_status_level = 4;
+                  } else {
+                      right_arm_status =" ";
+                      right_arm_status_level = 0;
+                  }
+                          setAttrs({right_arm_status,right_arm_status_level});
+                      });
+                  });
+
+    //Left arm status             
+      on("change:left_arm_damage", function() {
+              getAttrs(["left_arm_damage", "left_arm_hit_capacity", "left_arm_status"
+                      ], function(pvalue) {
+                  var left_arm_damage =  parseInt(pvalue.left_arm_damage);
+                  var left_arm_hit_capacity = parseInt(pvalue.left_arm_hit_capacity) ;
+                  var left_arm_status = parseInt(pvalue.left_arm_status) ;
+                  if (left_arm_damage < 1) {
+                      left_arm_status = " ";
+                      left_arm_status_level = 0;
+                  } else if (left_arm_damage <= left_arm_hit_capacity/2) {
+                      left_arm_status = "Scratch";
+                      left_arm_status_level = 1;
+                  } else if (left_arm_damage <= left_arm_hit_capacity) {
+                      left_arm_status = "Sligth";
+                      left_arm_status_level = 2;
+                  } else if (left_arm_damage <= left_arm_hit_capacity*2) {
+                      left_arm_status = "Serious";
+                      left_arm_status_level = 3;
+                  } else if (left_arm_damage > left_arm_hit_capacity*2) {
+                      left_arm_status = "Critical";
+                      left_arm_status_level = 4;
+                  } else {
+                      left_arm_status =" ";
+                      left_arm_status_level = 0;
+                  }
+
+                          setAttrs({left_arm_status,left_arm_status_level});
+                      });
+                  });
+                 
+    //Left leg status              
+        on("change:left_leg_damage", function() {
+              getAttrs(["left_leg_damage", "left_leg_hit_capacity", "left_leg_status"
+                      ], function(pvalue) {
+                  var left_leg_damage =  parseInt(pvalue.left_leg_damage);
+                  var left_leg_hit_capacity = parseInt(pvalue.left_leg_hit_capacity) ;
+                  var left_leg_status = parseInt(pvalue.left_leg_status) ;
+                  if (left_leg_damage < 1) {
+                      left_leg_status = " ";
+                      left_leg_status_level = 0;
+                  } else if (left_leg_damage <= left_leg_hit_capacity/2) {
+                      left_leg_status = "Scratch";
+                      left_leg_status_level = 1;
+                  } else if (left_leg_damage <= left_leg_hit_capacity) {
+                      left_leg_status = "Sligth";
+                      left_leg_status_level = 2;
+                  } else if (left_leg_damage <= left_leg_hit_capacity*2) {
+                      left_leg_status = "Serious";
+                      left_leg_status_level = 3;
+                  } else if (left_leg_damage > left_leg_hit_capacity*2) {
+                      left_leg_status = "Critical";
+                      left_leg_status_level = 4;
+                  } else {
+                      left_leg_status = " ";
+                      left_leg_status_level = 0;
+                  }
+                          setAttrs({left_leg_status,left_leg_status_level});
+                      });
+                  });
+                           
+    //Rigt leg status              
+      on("change:right_leg_damage", function() {
+          getAttrs(["right_leg_damage", "right_leg_hit_capacity", "right_leg_status"], function(pvalue) {
+                  var right_leg_damage =  parseInt(pvalue.right_leg_damage);
+                  var right_leg_hit_capacity = parseInt(pvalue.right_leg_hit_capacity) ;
+                  var right_leg_status = parseInt(pvalue.right_leg_status) ;
+                  if (right_leg_damage < 1) {
+                      right_leg_status = " ";
+                      right_leg_status_level = 0;
+                  } else if (right_leg_damage <= right_leg_hit_capacity/2) {
+                      right_leg_status = "Scratch";
+                      right_leg_status_level = 1;
+                  } else if (right_leg_damage <= right_leg_hit_capacity) {
+                      right_leg_status = "Sligth";
+                      right_leg_status_level = 2;
+                  } else if (right_leg_damage <= right_leg_hit_capacity*2) {
+                      right_leg_status = "Serious";
+                      right_leg_status_level = 3;
+                  } else if (right_leg_damage > right_leg_hit_capacity*2) {
+                      right_leg_status = "Critical";
+                      right_leg_status_level = 4;
+                  } else {
+                      right_leg_status = " ";
+                      right_leg_status_level = 0;
+                  }
+                          setAttrs({right_leg_status,right_leg_status_level});
+                      });
+                  });
+  
+  //Age and terms
+    //Number of terms
+      on("change:repeating_careers:careername", function() {
+              getSectionIDs("careers", function(idArray) {
+                  var term_no = idArray.length;
+              setAttrs({term_no:term_no});
+              });
+          })
+
+    //Number of terms if a term is deleted
+              on("remove:repeating_careers", function() {
+              getSectionIDs("careers", function(idArray) {
+                  var term_no = idArray.length;
+              setAttrs({term_no:term_no});
+              });
+          })
+    //Age
+              on("change:term_no", function() {
+              getAttrs(["term_no", "age"
+                      ], function(pvalue) {
+                  console.log("************ start capacities caclulation ************");
+                  var term_no =  parseInt(pvalue.term_no);
+                  var adjusted_age =  ((term_no*4)+17);
+                  setAttrs({age:adjusted_age});
+              });
+          });    
+
+  //Divied initiative tie break on 100
+    on("change:tie_break", function() {
+      getAttrs(["tie_break", "final_initiative"], function(pvalue) {
+        var tie_break = parseInt(pvalue.tie_break);
+        var final_initiative = tie_break/100
+      setAttrs ({final_initiative})
+            });
+    });
+
+  //Adjust initiative
+    on("change:initiative_max change:armor_initiative_penalty change:load_initiative_penalty change:damage_initiative_penalty", function () {
+          getAttrs(["initiative_max", "armor_initiative_penalty","load_initiative_penalty","damage_initiative_penalty","initiative"], function (pvalue) {
+              var armor_initiative_penalty = parseInt(pvalue.armor_initiative_penalty);
+              var load_initiative_penalty = parseInt(pvalue.load_initiative_penalty);
+              var damage_initiative_penalty = parseInt(pvalue.damage_initiative_penalty);
+              var initiative_max = parseInt(pvalue.initiative_max);
+              var initiative = initiative_max - armor_initiative_penalty - load_initiative_penalty - damage_initiative_penalty
+          setAttrs ({initiative})
+          });
+      });
+  
+  //Load
+    on("change:load change:encumbrance_total", function() {
+            getAttrs(["load","encumbrance_total", "load_limit", "initiative", "armor_initiative_penalty",
+                ], function (pvalue) {
+                    var load = parseInt(pvalue.load);
+                    var encumbrance_total = parseInt(pvalue.encumbrance_total);
+                    var load_limit = parseInt(pvalue.load_limit);
+                    var initiative = parseInt(pvalue.initiative)
+                    var load_initiative_penalty = parseInt(pvalue.load_initiative_penalty)
+                    if (encumbrance_total <= (load)) 
+                        {load_limit = "Unburdened" 
+                        load_initiative_penalty = 0} 
+                    else if (encumbrance_total <= (load)*2) 
+                            {load_limit = "Burdened, movement and initiative reduced.";
+                            load_initiative_penalty = 1;} 
+                    else if (encumbrance_total <= load*4) 
+                        {load_limit = "Heavy burdened, initiative reduced to 1. May only carry 100 meters at a time.";
+                          load_initiative_penalty = initiative - 1} 
+                    else {load_limit = "Too heavy, weight cannot be carried."}
+                    setAttrs ({load_limit,load_initiative_penalty})
+                });
+                });
+
+  /* ===== PARAMETERS ==========
+    destination = the name of the attribute that stores the total quantity
+    section = name of repeating fieldset, without the repeating_
+    fields = the name of the attribute field to be summed
+          can be a single attribute: 'weight'
+          or an array of attributes: ['weight','number','equipped']
+    multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
+    */
+    const repeatingSum = (destination, section, fields, multiplier = 1) => {
+        if (!Array.isArray(fields)) fields = [fields];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
+            getAttrs(attrArray, v => {
+                console.log("===== values of v: "+ JSON.stringify(v) +" =====");
+                     // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+                const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0); 
+                const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
+                setAttrs({[destination]: sumTotal * multiplier});    
+            });
+        });
+    };
+
+  //Calculate encumbrance
+    on('change:repeating_inventory remove:repeating_inventory', function() {
+      repeatingSum("encumbrance_total","inventory",["item_weight","item_number","equipment_carried"]);
+    });
+
+  //Calculate Credits
+    on('change:repeating_careers remove:repeating_careers', function() {
+      repeatingSum("credits","careers","careercredits");
+    });
+
+  //Calculate Ship DMs
+    on('change:repeating_careers remove:repeating_careers', function() {
+      repeatingSum("ship_dms","careers","careershipdm");
+    });
+
+
+
+</script>
